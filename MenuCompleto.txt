@@ -1,0 +1,80 @@
+#include <stdio.h>
+int main (){
+    int menu = 1;
+    int cantidad;
+    float calificacion, final, kelvin, celcius;
+    float Promedio;
+    int CatetoA;
+    int CatetoB;
+    float CatetoC, Resultado = 0;
+    do{
+        printf("\nQue quieres hacer\n");
+        printf("1.- Calcular un promedio de una cantidad n de calificaciones \n");
+        printf("2.- Convertir kelvins a celsius\n");
+        printf("3.- Teorema de pitagoras \n");
+        printf("4.- Salir \n");
+        scanf("%d", &menu);
+
+        switch(menu){
+            case 1:
+                Promedio = 0;
+                printf("Ingrese la cantidad de calificaciones que va a ingresar\n");
+                scanf("%d", &cantidad);
+                for(int i =0; i < cantidad; i++){
+                    printf("Ingrese la calificacion %d: \n", i + 1);
+                    scanf("%f", &calificacion);
+                    Promedio = Promedio + calificacion;
+                }
+                final = Promedio/cantidad;
+                printf("\nPromedio total: %.2f\n", final);
+                if(final >=7){
+                    printf("\nPASASTE\n");
+                }
+                break;
+            case 2:
+                printf("Ingrese la temperatura en kelvin (Uso del if y else)\n");
+                scanf("%f", &kelvin);
+                celcius = kelvin-273.15; 
+                if (celcius<=11){
+                    printf("\nEsta congelandose: %.2f grados celsius\n", celcius);
+                }
+                else if(celcius>=12 && celcius<=20){
+                    printf("\nEsta frio: %.2f grados celsius\n", celcius);
+                }
+                else if(celcius>=21 && celcius<=30){
+                    printf("\nEsta templado: %.2f grados celsius\n", celcius);
+                }
+                else if(celcius>=31 && celcius<=40){
+                    printf("\nEsta caliente: %.2f grados celsius\n", celcius);
+                }
+                else if(celcius>=41 && celcius<=50){
+                    printf("\nEsta en juarez: %.2f grados celsius\n", celcius);
+                }
+                else{
+                    printf("\nQUE HACKER\n");
+                }
+                break;
+            case 3:
+                printf("Dame el Cateto A de un triangulo rectangulo\n");
+                scanf("%d", &CatetoA);
+                printf("Dame el Cateto B de un triangulo rectangulo\n");
+                scanf("%d", &CatetoB);
+                CatetoC = ((CatetoA*CatetoA) + (CatetoB*CatetoB));
+                Resultado = CatetoC/2;
+                Resultado = (Resultado + (CatetoC / Resultado))/2;
+                Resultado = (Resultado + (CatetoC / Resultado))/2;
+                Resultado = (Resultado + (CatetoC / Resultado))/2;
+                Resultado = (Resultado + (CatetoC / Resultado))/2;
+                Resultado = (Resultado + (CatetoC / Resultado))/2;
+                Resultado = (Resultado + (CatetoC / Resultado))/2;
+                Resultado = (Resultado + (CatetoC / Resultado))/2;
+                printf("%d, %d", CatetoA, CatetoB);
+                printf("\nEl cateto c del triangulo rectangulo es: %.2f\n", Resultado);
+                break;
+            case 4:
+                printf("\nSaliste");
+                break;
+        }
+    }while( menu !=4);
+    return 0;
+}
